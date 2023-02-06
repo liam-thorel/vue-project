@@ -1,6 +1,6 @@
 <template>
-  <a :href="url" class="card">
-    <div class="data-item" :style="img">
+  <a href="url" class="card">
+    <div class="data-item" :style="{backgroundImage: 'url(' + img + ')'}">
       <span class="description">
         <p class="title">{{ name }}</p>
         <span class = "difficulte" v-for="index in 5" :key="index">
@@ -13,6 +13,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'data-ratio',
   props: {
@@ -21,8 +22,7 @@ export default {
     description: String,
     dificulty: Number,
     price: Number,
-    img: String,
-    url: String
+    img: String
   },
   viewRecette() {
     this.$emit('viewRecette', this.id);

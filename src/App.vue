@@ -12,7 +12,7 @@
           :dificulty="item.dificulty"
           :price="item.price"
           :key="item.id"
-          :img="item.img"
+          :img= "item.picture"
           :url="item.url">
         </data-ratio>
     </div>
@@ -34,7 +34,7 @@ export default {
     }
   },
   mounted () {
-    axios.get('http://localhost:3000/recettes').then(response => (this.items = response.data))
+    axios.get('http://localhost:3000/recettes').then(response => (this.items = response.data, console.log(this.items)))
   }
 }
 </script>
