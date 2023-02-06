@@ -19,7 +19,7 @@ export default {
     id: Number,
     name: String,
     description: String,
-    dificulty: Number,
+    difficulty: Number,
     price: Number,
     img: String,
     url: String
