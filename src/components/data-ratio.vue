@@ -4,7 +4,7 @@
       <span class="description">
         <p class="title">{{ name }}</p>
         <span class = "difficulte" v-for="index in 5" :key="index">
-          <span v-if="index <= dificulty">★</span>
+          <span v-if="index <= difficulty">★</span>
           <span v-else>☆</span>
         </span>
       </span>

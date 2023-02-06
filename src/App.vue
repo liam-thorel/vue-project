@@ -9,7 +9,7 @@
           :id="item.id"
           :name="item.name"
           :description="item.description"
-          :dificulty="item.dificulty"
+          :difficulty="item.difficulty"
           :price="item.price"
           :key="item.id"
           :img="item.img"
