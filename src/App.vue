@@ -9,7 +9,7 @@
           :id="item.id"
           :name="item.name"
           :description="item.description"
-          :difficulty="item.difficulty"
+          :dificulty="item.dificulty"
           :price="item.price"
           :key="item.id"
           :img="item.img"
@@ -21,44 +21,20 @@
 
 <script>
 import DataRatio from "@/components/data-ratio.vue";
+import axios from "axios";
 
 export default {
   name: 'App',
   components: {
     DataRatio
   },
-  data() {
+  data () {
     return {
-      items: [
-        {
-          id: 1,
-          name: 'Poulet cru',
-          description: 'description 1',
-          difficulty: 1,
-          price: 10,
-          img: { backgroundImage: "url(https://www.pratique.fr/images/unsized/po/poulet-cru.jpg)" },
-          url:"pouletcru"
-        },
-        {
-          id: 2,
-          name: 'Poulet pas trop cuit',
-          description: 'description 2',
-          difficulty: 2,
-          price: 20,
-          img: { backgroundImage: "url(https://lafermedecollonge.fr/wp-content/uploads/2021/02/Poulet20cuit-900x600.jpg)" },
-          url:"pouletpastropcuit"
-        },
-        {
-          id: 3,
-          name: 'Poulet cuit',
-          description: 'description 3',
-          difficulty: 3,
-          price: 30,
-          img: { backgroundImage: "url(https://lafermedecollonge.fr/wp-content/uploads/2021/02/Poulet20cuit-900x600.jpg)" },
-          url:"pouletcuit"
-        }
-      ]
+      items: null,
     }
+  },
+  mounted () {
+    axios.get('http://localhost:3000/recettes').then(response => (this.items = response.data))
   }
 }
 </script>
