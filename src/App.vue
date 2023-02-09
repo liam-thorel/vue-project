@@ -2,6 +2,7 @@
   <div id="app">
     <header class="header">
       <h1>Recettes</h1>
+      <button class="tomPetiteChienne" @click="loginButton">Compte <img class id="login-picture" src="./assets/login-icon-smol.png"></button>
     </header>
     <div class="container">
         <data-ratio
@@ -35,6 +36,11 @@ export default {
   },
   mounted () {
     axios.get('http://localhost:3000/recettes').then(response => (this.items = response.data, console.log(this.items)))
+  },
+  methods: {
+    menuAddRecette() {
+      this.$router.push('/addRecette');
+    }
   }
 }
 </script>
@@ -50,7 +56,7 @@ export default {
 .header{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 100px;
@@ -64,5 +70,22 @@ export default {
   flex-wrap: wrap;
   width: 100%;
   height: 100%;
+}
+.tomPetiteChienne {
+  background-color: #f2f2f2;
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.tomPetiteChienne:hover {
+  background-color: #f2f2f2;
+  color: dimgrey;
 }
 </style>
