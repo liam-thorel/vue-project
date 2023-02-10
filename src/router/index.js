@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import RecipesListView from "@/views/RecipesListView.vue";
 import HomeView from "@/views/HomeView.vue";
+import RecipeDetails from "@/views/RecipeDetails.vue";
 
 Vue.use(VueRouter)
 
@@ -18,6 +19,11 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: HomeView
+  },
+  {
+    path: '/recipe/:id',
+    name: 'recipeDetails',
+    component: RecipeDetails
   }
 ]
 

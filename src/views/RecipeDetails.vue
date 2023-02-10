@@ -1,13 +1,8 @@
 <template>
   <div class = "top">
-    <h2> {{ recipe.name }} </h2>
-    <span class = "difficulte" v-for="index in 5" :key="index">
-      <span v-if="index <= recipe.difficulty">★</span>
-      <span v-else>☆</span>
-    </span>
+    <h1>oui</h1>
   </div>
-  <p> {{ recipe.description }} </p>
-  <p> {{ recipe.price }} </p>
+
 </template>
 <script>
 import axios from "axios";
@@ -20,7 +15,7 @@ export default {
     }
   },
 mounted () {
-  axios.get('https://projet-node-js.vercel.app/recette/').then(response => (this.recipe = response.data, console.log(this.recipe)))
+  axios.get('https://projet-node-js.vercel.app/recette/'+this.$route.params.id).then(response => (this.recipe = response.data, console.log(this.recipe)))
 },
 }
 
