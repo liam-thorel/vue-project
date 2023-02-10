@@ -59,13 +59,12 @@ export default {
   margin: 10px;
   background-size: cover;
   background-position: center;
-
+  box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
+  transition: .3s all ease-in-out;
 }
 .data-item:hover {
   background-size: cover;
   transform-origin: center;
-  transition: transform .4s ease-in-out;
   transform: scale(1.05);
 }
-
 </style>
