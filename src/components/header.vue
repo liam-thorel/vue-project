@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class = "je-prends-de-la-place"></div>
-    <h1>Recettes</h1>
+    <a href="http://localhost:8080"><h1>Marmitoin</h1></a>
     <button class="tomPetiteChienne">Compte<img class id="login-picture" src="../assets/login-icon-smol.png"></button>
   </div>
 </template>
@@ -45,5 +45,9 @@ export default {
 #login-picture {
   width: 30px;
   height: 30px;
+}
+a {
+  text-decoration: none;
+  color: black;
 }
 </style>
