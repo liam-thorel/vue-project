@@ -18,6 +18,7 @@
           <p> {{ recipe.weight }} kg </p>
           <p> {{ recipe.price }} € </p>
           <p> {{ recipe.description }} </p>
+          <p> {{ getPricePerPerson }} €/personne </p>
         </div>
       </div>
     </div>
@@ -36,6 +37,11 @@ export default {
 mounted () {
   axios.get('https://projet-node-js.vercel.app/recette/'+this.$route.params.id).then(response => (this.recipe = response.data, console.log(this.recipe)))
 },
+computed: {
+  getPricePerPerson() {
+    return this.recipe.price / this.recipe.nbPerson;
+  }
+}
 }
 </script>
 
