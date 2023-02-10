@@ -57,6 +57,13 @@ export default {
   margin: 10px;
   background-size: cover;
   background-position: center;
+
+}
+.data-item:hover {
+  background-size: cover;
+  transform-origin: center;
+  transition: transform .4s ease-in-out;
+  transform: scale(1.05);
 }
 
 </style>
