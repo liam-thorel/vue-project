@@ -1,5 +1,5 @@
 <template>
-  <a href="url" class="card">
+  <router-link :to="{ name: 'recipeDetails', params: { id: id }}"  class="card">
     <div class="data-item" :style="{backgroundImage: 'url(' + img + ')'}">
       <span class="description">
         <p class="title">{{ name }}</p>
@@ -9,7 +9,7 @@
         </span>
       </span>
     </div>
-  </a>
+  </router-link>
 </template>
 
 <script>
@@ -17,13 +17,13 @@
 export default {
   name: 'data-ratio',
   props: {
-    id: Number,
+    id: String,
     name: String,
     description: String,
     difficulty: Number,
     price: Number,
     img: String
-  },
+  }
 }
 </script>
 

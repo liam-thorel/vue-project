@@ -2,7 +2,7 @@
   <div class="container">
     <data-ratio
         v-for="item in items"
-        :id="item.id"
+        :id="item._id"
         :name="item.name"
         :description="item.description"
         :difficulty="item.difficulty"
@@ -23,7 +23,7 @@ export default {
   },
   data () {
     return {
-      items: null,
+      items: {},
     }
   },
   mounted () {
