@@ -2,7 +2,7 @@
   <div id="app">
     <header class="header">
       <h1>Recettes</h1>
-      <button class="tomPetiteChienne" @click="loginButton">Compte <img class id="login-picture" src="./assets/login-icon-smol.png"></button>
+      <button class="tomPetiteChienne">Compte <img class id="login-picture" src="./assets/login-icon-smol.png"></button>
     </header>
     <div class="container">
         <data-ratio

@@ -24,9 +24,6 @@ export default {
     price: Number,
     img: String
   },
-  viewRecette() {
-    this.$emit('viewRecette', this.id);
-  }
 }
 </script>
 
