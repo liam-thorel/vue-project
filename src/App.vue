@@ -35,7 +35,7 @@ export default {
     }
   },
   mounted () {
-    axios.get('http://localhost:3000/recettes').then(response => (this.items = response.data, console.log(this.items)))
+    axios.get('https://projet-node-js.vercel.app/recettes').then(response => (this.items = response.data, console.log(this.items)))
   },
   methods: {
     menuAddRecette() {
