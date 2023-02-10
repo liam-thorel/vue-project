@@ -1,6 +1,14 @@
 <template>
-  <div class = "top">
-    <h1>oui</h1>
+  <div>
+    <div class = "top">
+      <h2> {{ recipe.name }} </h2>
+      <span class = "difficulte" v-for="index in 5" :key="index">
+      <span v-if="index <= recipe.difficulty">★</span>
+      <span v-else>☆</span>
+    </span>
+    </div>
+    <p> {{ recipe.description }} </p>
+    <p> {{ recipe.price }} </p>
   </div>
 
 </template>
