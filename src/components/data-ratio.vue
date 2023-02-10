@@ -22,7 +22,9 @@ export default {
     description: String,
     difficulty: Number,
     price: Number,
-    img: String
+    img: String,
+    nbPerson: Number,
+    weight: Number,
   }
 }
 </script>
