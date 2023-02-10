@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <header class="header">
+      <div class = "je-prends-de-la-place"></div>
       <h1>Recettes</h1>
       <button class="tomPetiteChienne">Compte<img class id="login-picture" src="./assets/login-icon-smol.png"></button>
     </header>
@@ -87,5 +88,8 @@ export default {
 .tomPetiteChienne:hover {
   background-color: #f2f2f2;
   color: dimgrey;
+}
+.je-prends-de-la-place {
+  width: 140px;
 }
 </style>
