@@ -19,7 +19,7 @@ export default {
   name: 'RecipeDetails',
   data () {
     return {
-      recipe: null,
+      recipe: {},
     }
   },
 mounted () {
