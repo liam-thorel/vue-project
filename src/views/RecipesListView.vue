@@ -1,7 +1,8 @@
 <template>
   <div class="container">
+    <input class = "searchbar" type="text" v-model="search" placeholder="Search ratio..." />
     <data-ratio
-        v-for="item in items"
+        v-for="item in filteredList"
         :id="item._id"
         :name="item.name"
         :description="item.description"
@@ -23,12 +24,19 @@ export default {
   },
   data () {
     return {
-      items: {},
+      search: '',
+      items: [],
     }
   },
   mounted () {
     axios.get('https://projet-node-js.vercel.app/recettes').then(response => (this.items = response.data, console.log(this.items)))
-  },
+  },computed: {
+    filteredList() {
+      return this.items.filter(post => {
+        return post.name.toLowerCase().includes(this.search.toLowerCase())
+      })
+    }
+  }
 }
 </script>
 <style>
@@ -41,5 +49,14 @@ export default {
   flex-wrap: wrap;
   width: 100%;
   height: 100%;
+}
+.searchbar {
+  width: 100%;
+  height: 50px;
+  font-size: 20px;
+  border: 3px solid goldenrod;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 10px;
 }
 </style>
