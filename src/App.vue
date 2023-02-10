@@ -7,26 +7,12 @@
 </template>
 
 <script>
-import axios from "axios";
 import HeaderMain from "@/components/header.vue";
 export default {
   name: 'App',
   components: {
     HeaderMain
   },
-  data () {
-    return {
-      items: null,
-    }
-  },
-  mounted () {
-    axios.get('https://projet-node-js.vercel.app/recettes').then(response => (this.items = response.data, console.log(this.items)))
-  },
-  methods: {
-    menuAddRecette() {
-      this.$router.push('/addRecette');
-    }
-  }
 }
 </script>
 
