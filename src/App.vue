@@ -1,10 +1,6 @@
 <template>
   <div id="app">
-    <header class="header">
-      <div class = "je-prends-de-la-place"></div>
-      <h1>Recettes</h1>
-      <button class="tomPetiteChienne">Compte<img class id="login-picture" src="./assets/login-icon-smol.png"></button>
-    </header>
+    <HeaderMain></HeaderMain>
     <div class="container">
       <data-ratio
           v-for="item in items"
@@ -24,9 +20,11 @@
 <script>
 import DataRatio from "@/components/data-ratio.vue";
 import axios from "axios";
+import HeaderMain from "@/components/header.vue";
 export default {
   name: 'App',
   components: {
+    HeaderMain,
     DataRatio
   },
   data () {
@@ -53,15 +51,7 @@ export default {
   display: flex;
   flex-direction: column;
 }
-.header{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 100px;
-  background-color: #f2f2f2;
-}
+
 .container{
   display: flex;
   flex-direction: row;
@@ -70,25 +60,5 @@ export default {
   flex-wrap: wrap;
   width: 100%;
   height: 100%;
-}
-.tomPetiteChienne {
-  background-color: #f2f2f2;
-  border: none;
-  color: black;
-  padding: 15px 32px;
-  justify-content: center;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-.tomPetiteChienne:hover {
-  background-color: #f2f2f2;
-  color: dimgrey;
-}
-.je-prends-de-la-place {
-  width: 140px;
 }
 </style>
