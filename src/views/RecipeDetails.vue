@@ -6,12 +6,14 @@
         <div class = "top">
           <h2> {{ recipe.name }} </h2>
           <span class = "difficulte" v-for="index in 5" :key="index">
-          <span v-if="index <= recipe.difficulty">★</span>
-          <span v-else>☆</span>
+          <span v-if="index <= recipe.difficulty">★ </span>
+          <span v-else>☆ </span>
           </span>
-        </div>
+          <p> {{ recipe.nbPerson }} personnes </p>
+          <p> {{ recipe.weight }} g </p>
         <p> {{ recipe.description }} </p>
         <p> {{ recipe.price }} € </p>
+        </div>
       </div>
     </div>
   </div>
@@ -31,6 +33,7 @@ mounted () {
 },
 }
 </script>
+
 <style>
 .recipe-container {
   display: flex;
@@ -39,22 +42,32 @@ mounted () {
   align-items: center;
   width: 100%;
   height: 100%;
+  background-color: cyan;
 }
 .recette {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 50%;
-  height: 50%;
-  border: black;
+  border: 3px solid goldenrod;
   border-radius: 15px;
   padding: 10px;
   margin: 10px;
-  background-color: white;
+  background-color: yellow;
 }
 img {
-  width: 50%;
+  width: 500px;
+}
+.top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   height: 100%;
+}
+.difficulte {
+  color: magenta;
+  scale: 3;
 }
 </style>
