@@ -2,17 +2,18 @@
   <div class="container">
     <LoadingSpinner v-show="items.length === 0"></LoadingSpinner>
     <input class = "searchbar" type="text" v-model="search" placeholder="Search ratio..." />
-    <data-ratio
-        v-for="item in filteredList"
-        :id="item._id"
-        :name="item.name"
-        :description="item.description"
-        :difficulty="item.difficulty"
-        :price="item.price"
-        :key="item.id"
-        :img= "item.picture"
-        :url="item.url">
-    </data-ratio>
+    <CardLink v-for="item in filteredList" :redirect="true" :key="item._id" :id="item._id">
+      <data-ratio
+          :id="item._id"
+          :name="item.name"
+          :description="item.description"
+          :difficulty="item.difficulty"
+          :price="item.price"
+          :img= "item.picture"
+          :url="item.url">
+      </data-ratio>
+    </CardLink>
+
 
     <input type="button" class="styleButton" value="Comparer 2 produits">
   </div>
@@ -21,12 +22,15 @@
 import DataRatio from "@/components/data-ratio.vue";
 import axios from "axios";
 import LoadingSpinner from "@/components/loadingSpinner.vue";
+import CardLink from "@/components/CardLink.vue";
 export default {
   name: 'RecipesListView',
   components: {
+    CardLink,
     DataRatio,
     LoadingSpinner
   },
+
   data () {
     return {
       search: '',

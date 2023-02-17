@@ -1,5 +1,5 @@
 <template>
-  <router-link :to="{ name: 'recipeDetails', params: { id: id }}"  class="card">
+  <div  class="card">
     <div class="data-item" :style="{backgroundImage: 'url(' + img + ')'}">
       <span class="description">
         <p class="title">{{ name }}</p>
@@ -9,7 +9,7 @@
         </span>
       </span>
     </div>
-  </router-link>
+  </div>
 </template>
 
 <script>
