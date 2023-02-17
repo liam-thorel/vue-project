@@ -2,7 +2,7 @@
   <div class="container">
     <LoadingSpinner v-show="items.length === 0"></LoadingSpinner>
     <input class = "searchbar" type="text" v-model="search" placeholder="Search ratio..." />
-    <CardLink v-for="item in filteredList" :redirect="redirectMode" :key="item._id" :id="item._id">
+    <CardLink v-for="item in filteredList" :redirect="redirectMode" :key="item._id" :id="item._id" @click="prepareComparaison(item._id)">
       <data-ratio
           :id="item._id"
           :name="item.name"
@@ -36,7 +36,8 @@ export default {
       search: '',
       items: [],
       redirectMode : true,
-      mode : "Mode Sélection"
+      mode : "Mode Sélection",
+      tabIdComparaison : [],
     }
   },
   mounted () {
@@ -55,6 +56,17 @@ export default {
         this.mode = "Mode Sélection";
       }else{
         this.mode = "Mode Comparaison";
+      }
+    },
+    prepareComparaison(id){
+      if(this.tabIdComparaison.indexOf(id) !==-1){
+        this.$delete(this.tabIdComparaison, this.tabIdComparaison.indexOf(id));
+        return;
+      }
+      this.tabIdComparaison.push(id);
+
+      if(this.tabIdComparaison.length === 2){
+        this.$router.push({ name: 'Comparaison', params: { id: this.tabIdComparaison } });
       }
     }
   }

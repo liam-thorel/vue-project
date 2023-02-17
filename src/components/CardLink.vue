@@ -3,7 +3,7 @@
   <RouterLink v-if="redirect" :to="{ name: 'recipeDetails', params: { id: id }}">
     <slot></slot>
   </RouterLink>
-  <div v-else>
+  <div v-else @click="click">
     <slot></slot>
   </div>
 </div>
@@ -18,6 +18,11 @@ export default {
       default: true,
     },
     id: String,
+  },
+  methods: {
+    click() {
+      this.$emit("click");
+    },
   },
 }
 </script>
