@@ -2,7 +2,7 @@
   <div class="container">
     <LoadingSpinner v-show="items.length === 0"></LoadingSpinner>
     <input class = "searchbar" type="text" v-model="search" placeholder="Search ratio..." />
-    <CardLink v-for="item in filteredList" :redirect="true" :key="item._id" :id="item._id">
+    <CardLink v-for="item in filteredList" :redirect="redirectMode" :key="item._id" :id="item._id">
       <data-ratio
           :id="item._id"
           :name="item.name"
@@ -15,7 +15,7 @@
     </CardLink>
 
 
-    <input type="button" class="styleButton" value="Comparer 2 produits">
+    <input type="button" v-on:click="toogleMode()" class="styleButton" value="Comparer 2 produits">
   </div>
 </template>
 <script>
@@ -35,6 +35,7 @@ export default {
     return {
       search: '',
       items: [],
+      redirectMode : true,
     }
   },
   mounted () {
@@ -44,6 +45,11 @@ export default {
       return this.items.filter(post => {
         return post.name.toLowerCase().includes(this.search.toLowerCase())
       })
+    },
+  },
+  methods: {
+    toogleMode() {
+      this.redirectMode = !this.redirectMode;
     }
   }
 }
