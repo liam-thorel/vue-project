@@ -1,6 +1,8 @@
 <template>
 <div>
-  <RouterLink v-if="redirect" :to="{ name: 'recipeDetails', params: { id: id }}"><slot></slot></RouterLink>
+  <RouterLink v-if="redirect" :to="{ name: 'recipeDetails', params: { id: id }}">
+    <slot></slot>
+  </RouterLink>
   <div v-else>
     <slot></slot>
   </div>
