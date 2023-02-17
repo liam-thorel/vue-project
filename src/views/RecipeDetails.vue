@@ -65,6 +65,7 @@ computed: {
   padding: 10px;
   margin: 10px;
   background-color: yellow;
+  box-shadow: rgba(0, 0, 0, 0.117647) 5px 1px 6px, rgba(0, 0, 0, 0.117647) 5px 1px 4px;
 }
 img {
   width: 500px;
