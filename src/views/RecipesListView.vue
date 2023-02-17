@@ -15,7 +15,7 @@
     </CardLink>
 
 
-    <input type="button" v-on:click="toogleMode()" class="styleButton" value="Comparer 2 produits">
+    <input type="button" v-on:click="toogleMode()" class="styleButton" :value="this.mode">
   </div>
 </template>
 <script>
@@ -36,6 +36,7 @@ export default {
       search: '',
       items: [],
       redirectMode : true,
+      mode : "Mode Sélection"
     }
   },
   mounted () {
@@ -50,6 +51,11 @@ export default {
   methods: {
     toogleMode() {
       this.redirectMode = !this.redirectMode;
+      if(this.redirectMode){
+        this.mode = "Mode Sélection";
+      }else{
+        this.mode = "Mode Comparaison";
+      }
     }
   }
 }
