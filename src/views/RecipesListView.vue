@@ -13,6 +13,8 @@
         :img= "item.picture"
         :url="item.url">
     </data-ratio>
+
+    <input type="button" class="styleButton" value="Comparer 2 produits">
   </div>
 </template>
 <script>
@@ -61,5 +63,18 @@ export default {
   border-radius: 15px;
   padding: 10px;
   margin: 10px;
+}
+.styleButton{
+  width: 25%;
+  height: 50px;
+  font-size: 20px;
+  border: 3px solid goldenrod;
+  border-radius: 15px;
+  padding: 10px;
+  margin: 10px;
+  background-color: lightgray;
+}
+.styleButton:active{
+  background-color: gray;
 }
 </style>
