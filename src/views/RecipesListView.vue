@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <LoadingSpinner v-show="items.length === 0"></LoadingSpinner>
     <input class = "searchbar" type="text" v-model="search" placeholder="Search ratio..." />
     <data-ratio
         v-for="item in filteredList"
@@ -17,10 +18,12 @@
 <script>
 import DataRatio from "@/components/data-ratio.vue";
 import axios from "axios";
+import LoadingSpinner from "@/components/loadingSpinner.vue";
 export default {
   name: 'RecipesListView',
   components: {
-    DataRatio
+    DataRatio,
+    LoadingSpinner
   },
   data () {
     return {

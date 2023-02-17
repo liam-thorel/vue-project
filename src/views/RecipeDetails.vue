@@ -1,6 +1,7 @@
 <template>
   <div class = "body">
-    <div class = "recipe-container">
+    <LoadingSpinner v-show="recipe.picture == null"></LoadingSpinner>
+    <div class = "recipe-container" v-if="recipe.picture!=null">
       <div class = "recette">
         <img :src="recipe.picture" alt="image de la recette">
         <div class = "top">
@@ -26,12 +27,18 @@
 </template>
 <script>
 import axios from "axios";
+import LoadingSpinner from "@/components/loadingSpinner.vue";
 
 export default {
+  components: {
+    LoadingSpinner
+
+  },
   name: 'RecipeDetails',
   data () {
     return {
       recipe: {},
+      show : false
     }
   },
 mounted () {
