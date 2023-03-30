@@ -66,7 +66,7 @@ export default {
       this.tabIdComparaison.push(id);
 
       if(this.tabIdComparaison.length === 2){
-        this.$router.push({ name: 'Comparaison', params: { id: this.tabIdComparaison } });
+        this.$router.push({ name: 'Compare', params: { id1: this.tabIdComparaison[0], id2: this.tabIdComparaison[1] } });
       }
     }
   }
