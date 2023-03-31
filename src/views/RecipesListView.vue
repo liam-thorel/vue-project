@@ -12,7 +12,11 @@
           :img= "item.picture"
           :url="item.url">
       </data-ratio>
+
     </CardLink>
+    <div class="center-button">
+      <button v-for="item in filteredList" @click="deleteItem(item._id)" :key="item._id" :id="item._id">Supprimer {{item.name}}</button>
+    </div>
 
 
     <input type="button" v-on:click="toogleMode()" class="styleButton" :value="this.mode">
@@ -68,6 +72,9 @@ export default {
       if(this.tabIdComparaison.length === 2){
         this.$router.push({ name: 'Compare', params: { id1: this.tabIdComparaison[0], id2: this.tabIdComparaison[1] } });
       }
+    },
+    deleteItem(id){
+      this.$delete(this.filteredList, this.filteredList.indexOf(item => item._id === id));
     }
   }
 }
