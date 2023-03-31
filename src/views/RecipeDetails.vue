@@ -10,24 +10,38 @@
                  :nbPerson="recipe.nbPerson"
                  :weight="recipe.weight">
     </DetailsCard>
+    <button v-show="Vue.prototype.$jwt" class="btn btn-primary" @click="edit = !edit">Modifier</button>
+    <CreateOrEdit
+        v-show="edit"
+        :name="recipe.name"
+        :description="recipe.description"
+        :difficulty="recipe.difficulty"
+        :price="recipe.price"
+        :picture="recipe.picture"
+        :nbPerson="recipe.nbPerson"
+        :weight="recipe.weight"
+    />
   </div>
 </template>
 <script>
 import axios from "axios";
 import LoadingSpinner from "@/components/loadingSpinner.vue";
 import DetailsCard from "@/components/DetailsCard.vue";
+import CreateOrEdit from "@/components/CreateOrEdit.vue";
+import Vue from "vue";
 
 export default {
   components: {
+    CreateOrEdit,
     LoadingSpinner,
     DetailsCard
-
   },
   name: 'RecipeDetails',
   data () {
     return {
       recipe: {},
-      show : false
+      show : false,
+      edit : false,
     }
   },
 mounted () {
@@ -36,8 +50,11 @@ mounted () {
 computed: {
   getPricePerPerson() {
     return this.recipe.price / this.recipe.nbPerson;
+  },
+  jwt() {
+    return !!Vue.prototype.$jwt;
   }
-}
+},
 }
 </script>
 
