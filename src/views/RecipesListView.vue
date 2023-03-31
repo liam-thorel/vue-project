@@ -27,6 +27,7 @@ import DataRatio from "@/components/data-ratio.vue";
 import axios from "axios";
 import LoadingSpinner from "@/components/loadingSpinner.vue";
 import CardLink from "@/components/CardLink.vue";
+import Vue from "vue";
 export default {
   name: 'RecipesListView',
   components: {
@@ -74,7 +75,12 @@ export default {
       }
     },
     async deleteItem(id){
-      await axios.delete('https://projet-node-js.vercel.app/recettes/delete/'+id).then((response)=> (function(){
+      const config ={
+        headers: {
+          'Authorization': 'Bearer ' + Vue.prototype.$jwt
+        }
+      }
+      await axios.delete('https://projet-node-js.vercel.app/recettes/delete/'+id,config).then((response)=> (function(){
         if(response.status === 200){
           this.items.filter(item => item._id !== id);
         }
