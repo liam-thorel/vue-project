@@ -74,6 +74,8 @@ export default {
       }
     },
     deleteItem(id){
+      console.log(id);
+      console.log(this.filteredList);
       this.$delete(this.filteredList, this.filteredList.indexOf(item => item._id === id));
     }
   }
