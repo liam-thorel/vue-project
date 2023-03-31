@@ -10,7 +10,7 @@
                  :nbPerson="recipe.nbPerson"
                  :weight="recipe.weight">
     </DetailsCard>
-    <button v-show="Vue.prototype.$jwt" class="btn btn-primary" @click="edit = !edit">Modifier</button>
+    <button v-show="jwtToken" class="btn btn-primary" @click="edit = !edit">Modifier</button>
     <CreateOrEdit
         v-show="edit"
         :name="recipe.name"
@@ -20,6 +20,7 @@
         :picture="recipe.picture"
         :nbPerson="recipe.nbPerson"
         :weight="recipe.weight"
+        :id="getId"
     />
   </div>
 </template>
@@ -51,9 +52,12 @@ computed: {
   getPricePerPerson() {
     return this.recipe.price / this.recipe.nbPerson;
   },
-  jwt() {
+  jwtToken() {
     return !!Vue.prototype.$jwt;
-  }
+  },
+  getId() {
+    return this.$route.params.id;
+  },
 },
 }
 </script>

@@ -34,6 +34,8 @@
   </div>
 </template>
 <script>
+import axios from "axios";
+
 export default {
   name: "CreateOrEdit",
   props: {
@@ -47,6 +49,18 @@ export default {
   },
   methods: {
     click() {
+      const recette = {
+        name: this.name,
+        description: this.description,
+        difficulty: this.difficulty,
+        price: this.price,
+        picture: this.picture,
+        nbPerson: this.nbPerson,
+        weight: this.weight,
+      };
+      axios.post("https://projet-node-js.vercel.app/recettes/create", recette).then((response) => {
+        console.log(response);
+      });
     },
   },
 }
