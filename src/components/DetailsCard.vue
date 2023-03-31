@@ -52,7 +52,6 @@ export default {
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: cyan;
 }
 .recette {
   display: flex;
@@ -68,6 +67,7 @@ export default {
 }
 img {
   width: 500px;
+  height: 500px;
 }
 .top {
   display: flex;
