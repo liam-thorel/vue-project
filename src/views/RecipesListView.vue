@@ -74,8 +74,12 @@ export default {
       }
     },
     async deleteItem(id){
-      await axios.delete('https://projet-node-js.vercel.app/recettes/delete/'+id);
-      this.items = this.items.filter(item => item._id !== id);
+      await axios.delete('https://projet-node-js.vercel.app/recettes/delete/'+id).then((response)=> (function(){
+        if(response.status === 200){
+          this.items.filter(item => item._id !== id);
+        }
+      }))
+      //this.items = this.items.filter(item => item._id !== id);
     }
   }
 }
