@@ -15,7 +15,7 @@
       </data-ratio>
 
     </CardLink>
-    <div class="center-button">
+    <div class="center-button" v-show="isConnected">
       <button @click="deleteItem(item._id)" :id="item._id">Supprimer {{item.name}}</button>
     </div>
     </div>
@@ -55,6 +55,9 @@ export default {
         return post.name.toLowerCase().includes(this.search.toLowerCase())
       })
     },
+    isConnected(){
+      return Vue.prototype.$jwt !== '';
+    }
   },
   methods: {
     toogleMode() {
