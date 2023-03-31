@@ -53,7 +53,7 @@ computed: {
     return this.recipe.price / this.recipe.nbPerson;
   },
   jwtToken() {
-    return !!Vue.prototype.$jwt;
+    return Vue.prototype.$jwt !== '';
   },
   getId() {
     return this.$route.params.id;

@@ -1,6 +1,10 @@
 <template>
   <div class="container">
     <LoadingSpinner v-show="items.length === 0"></LoadingSpinner>
+    <button v-show="isConnected" class="btn btn-primary" @click="add = !add">Ajouter une recette</button>
+    <CreateOrEdit
+        v-show="add"
+    />
     <input class = "searchbar" type="text" v-model="search" placeholder="Search ratio..." />
     <div v-for="item in filteredList" :key="item._id" :id="item._id">
     <CardLink :redirect="redirectMode" :id="item._id"  @click="prepareComparaison(item._id)">
@@ -30,9 +34,11 @@ import axios from "axios";
 import LoadingSpinner from "@/components/loadingSpinner.vue";
 import CardLink from "@/components/CardLink.vue";
 import Vue from "vue";
+import CreateOrEdit from "@/components/CreateOrEdit.vue";
 export default {
   name: 'RecipesListView',
   components: {
+    CreateOrEdit,
     CardLink,
     DataRatio,
     LoadingSpinner
@@ -45,6 +51,7 @@ export default {
       redirectMode : true,
       mode : "Mode Sélection",
       tabIdComparaison : [],
+      add : false
     }
   },
   mounted () {

@@ -46,6 +46,7 @@ export default {
     picture: String,
     nbPerson: Number,
     weight: Number,
+    id: String,
   },
   methods: {
     click() {
@@ -57,8 +58,14 @@ export default {
         picture: this.picture,
         nbPerson: this.nbPerson,
         weight: this.weight,
+        id: this.id,
       };
-      axios.post("https://projet-node-js.vercel.app/recettes/create", recette).then((response) => {
+      const config = {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      }
+      axios.post("https://projet-node-js.vercel.app/recettes/create", recette, config).then((response) => {
         console.log(response);
       });
     },
