@@ -29,11 +29,14 @@ export default {
         name: this.name,
         password: this.password
       }
-      console.log(user)
-      axios.post('https://projet-node-js.vercel.app/recettes/connexion', user)
+      const config = {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
+      }
+      axios.post('https://projet-node-js.vercel.app/recettes/connexion', user, config)
         .then(res => {
-          console.log(res);
-          console.log(res.data);
+          console.log(res.data.jwt);
         })
   }
 },
