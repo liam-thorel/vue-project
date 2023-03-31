@@ -5,6 +5,7 @@ import HomeView from "@/views/HomeView.vue";
 import RecipeDetails from "@/views/RecipeDetails.vue";
 import CompareView from "@/views/CompareView.vue";
 import LoginView from "@/views/LoginView.vue";
+import SignUpView from "@/views/SignUpView.vue";
 
 Vue.use(VueRouter)
 
@@ -36,6 +37,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: LoginView
+  },
+  {
+    path: '/signup',
+    name: 'signup',
+    component: SignUpView
   }
 ]
 
