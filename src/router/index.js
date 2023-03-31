@@ -4,6 +4,7 @@ import RecipesListView from "@/views/RecipesListView.vue";
 import HomeView from "@/views/HomeView.vue";
 import RecipeDetails from "@/views/RecipeDetails.vue";
 import CompareView from "@/views/CompareView.vue";
+import LoginView from "@/views/LoginView.vue";
 
 Vue.use(VueRouter)
 
@@ -30,6 +31,11 @@ const routes = [
     path: '/compare/:id1/:id2',
     name: 'Compare',
     component: CompareView
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: LoginView
   }
 ]
 

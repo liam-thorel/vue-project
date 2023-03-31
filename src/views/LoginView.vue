@@ -3,8 +3,8 @@
     <div class="login-form">
       <h1>Connexion</h1>
       <form>
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Votre email" required>
+        <label for="nom">Nom</label>
+        <input type="text" id="nom" name="nom" placeholder="Votre nom" required>
         <label for="password">Mot de passe</label>
         <input type="password" id="password" name="password" placeholder="Votre mot de passe" required>
         <button type="submit">Se connecter</button>

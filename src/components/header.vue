@@ -2,7 +2,9 @@
   <div class="header">
     <div class = "je-prends-de-la-place"></div>
     <a href="http://localhost:8080"><h1>Marmitoin</h1></a>
-    <button class="tomPetiteChienne">Compte<img class id="login-picture" src="../assets/login-icon-smol.png"></button>
+    <div class="tomPetiteChienne">
+      <RouterLink to="/login">Compte<img class id="login-picture" src="../assets/login-icon-smol.png"></RouterLink>
+    </div>
   </div>
 </template>
 
