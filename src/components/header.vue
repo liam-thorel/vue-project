@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class = "je-prends-de-la-place"></div>
-    <a href="http://localhost:8080"><h1>Marmitoin</h1></a>
+    <RouterLink to="/"><h1>Marmitoin</h1></RouterLink>
     <div class = "ratio">
       <div class="tomPetiteChienne">
         <RouterLink to="/login">Compte<img class id="login-picture" src="../assets/login-icon-smol.png"></RouterLink>
