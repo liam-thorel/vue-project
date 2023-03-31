@@ -2,7 +2,8 @@
   <div class="container">
     <LoadingSpinner v-show="items.length === 0"></LoadingSpinner>
     <input class = "searchbar" type="text" v-model="search" placeholder="Search ratio..." />
-    <CardLink v-for="item in filteredList" :redirect="redirectMode" :key="item._id" :id="item._id" @click="prepareComparaison(item._id)">
+    <div v-for="item in filteredList" :key="item._id" :id="item._id">
+    <CardLink :redirect="redirectMode" :id="item._id"  @click="prepareComparaison(item._id)">
       <data-ratio
           :id="item._id"
           :name="item.name"
@@ -15,7 +16,8 @@
 
     </CardLink>
     <div class="center-button">
-      <button v-for="item in filteredList" @click="deleteItem(item._id)" :key="item._id" :id="item._id">Supprimer {{item.name}}</button>
+      <button @click="deleteItem(item._id)" :id="item._id">Supprimer {{item.name}}</button>
+    </div>
     </div>
 
 
@@ -74,18 +76,19 @@ export default {
         this.$router.push({ name: 'Compare', params: { id1: this.tabIdComparaison[0], id2: this.tabIdComparaison[1] } });
       }
     },
-    async deleteItem(id){
+    deleteItem(id){
       const config ={
         headers: {
           'Authorization': 'Bearer ' + Vue.prototype.$jwt
         }
       }
-      await axios.delete('https://projet-node-js.vercel.app/recettes/delete/'+id,config).then((response)=> (function(){
-        if(response.status === 200){
-          this.items.filter(item => item._id !== id);
-        }
-      }))
+      axios.delete('https://projet-node-js.vercel.app/recettes/delete/'+id,config).then(response => this.deleteItemVisuel(response.status,id))
       //this.items = this.items.filter(item => item._id !== id);
+    },
+    deleteItemVisuel(status,id){
+      if(status === 200){
+        this.items = this.items.filter(item => item._id !== id);
+      }
     }
   }
 }
