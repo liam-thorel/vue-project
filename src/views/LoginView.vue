@@ -14,6 +14,7 @@
 </template>
 <script>
 import axios from "axios";
+import Vue from "vue";
 
 export default {
   name: 'LoginPage',
@@ -37,6 +38,8 @@ export default {
       axios.post('https://projet-node-js.vercel.app/recettes/connexion', user, config)
         .then(res => {
           console.log(res.data.jwt);
+          Vue.prototype.$jwt = res.data.jwt;
+          this.$router.push({ name: 'recipes' })
         })
   }
 },
