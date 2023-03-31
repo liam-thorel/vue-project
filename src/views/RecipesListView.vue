@@ -73,10 +73,9 @@ export default {
         this.$router.push({ name: 'Compare', params: { id1: this.tabIdComparaison[0], id2: this.tabIdComparaison[1] } });
       }
     },
-    deleteItem(id){
-      console.log(id);
-      console.log(this.filteredList);
-      this.$delete(this.filteredList, this.filteredList.indexOf(item => item._id === id));
+    async deleteItem(id){
+      await axios.delete('https://projet-node-js.vercel.app/recettes/delete'+id);
+      this.items = this.items.filter(item => item._id !== id);
     }
   }
 }
